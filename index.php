@@ -43,7 +43,11 @@
             </div>
             <!-- Course Drop Down -->
             <div class="form-group col-sm-4">
-              <input type="text" class="form-control input-lg" id="tagno" autocomplete="off" name="tagno" placeholder="GRADE">
+              <select class="form-control" name="tagno" id="tagno"">
+                <option value="BEED">BEED</option>
+                <option value="BSAB">BSAB</option>
+                <option value="BSIT">BSIT</option>
+              </select>
             </div>
           </div>
           <!-- Submit BUTTON -->
