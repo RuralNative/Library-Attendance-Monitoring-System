@@ -20,7 +20,7 @@
 			$date_now = date('Y-m-d');
 
 			if($status == 'in'){
-				$sql = "SELECT * FROM attendance WHERE reference_number = '$id' AND date = '$date_now' AND time_in IS NOT NULL";
+				$sql = "SELECT * FROM attendance WHERE reference_number = '$id' AND date = '$date_now' AND time_in IS NOT NULL AND status = 0";
 				$query = $conn->query($sql);
 				if($query->num_rows > 0){
 					$output['error'] = true;
