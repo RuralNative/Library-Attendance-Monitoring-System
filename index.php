@@ -6,47 +6,51 @@
 
   <!-- PAGE SCREEN -->
   <div class="login-box">
-      <!-- Logo Component -->
+      <!-- LOGO COMPONENT -->
       <div class="login-logos">
         <img src="images/cpsu_logo.webp" alt="CPSU Logo">
       </div>
     
-      <!-- Logo Title Component -->  
+      <!-- FORM CONTAINER (START) -->  
       <div class="login-box-body">
         <h4 class="login-box-msg" style="font-weight: bold; color: #3D6245; font-size: 20px;">
-          <b>CPSU</b> Library
+          <strong>CPSU LIBRARY</strong> <i>Attendance</i>
         </h4>
-        <!-- FORM -->
+        <!-- FORM COMPONENT -->
         <form id="attendance">
+          <!-- Check In/Check Out COMPONENT -->
           <div class="form-group">
             <select class="form-control" name="status" id="status" onchange="displayDiv('hideValueOnSelect', this)">
               <option value="in">CHECK IN</option>
               <option value="out">CHECK OUT</option>
             </select>
           </div>
+          <!-- Student ID COMPONENT -->
           <div class="form-group has-feedback">
-            <input type="text" class="form-control input-lg" id="employee" name="employee" placeholder="LRN NO." required>
+            <input type="text" class="form-control input-lg" id="employee" name="employee" placeholder="STUDENT ID" required>
             <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
           </div>
+          <!-- Purpose/Course COMPONENT (ROW) -->
           <div class="row" id="hideValueOnSelect">
+            <!-- Purpose Drop Down -->
             <div class="form-group col-sm-8">
-                  <input type="text" class="form-control input-lg" id="temperature" autocomplete="off" name="temperature" placeholder="PORPOSE">
-              </div>
-              <div class="form-group col-sm-4">
-                  <input type="text" class="form-control input-lg" id="tagno" autocomplete="off" name="tagno" placeholder="GRADE">
-                  
-
-              </div>
-
-              </div>
-          </div>
-          <div class="row">
-          <div class="col-sm-4">
-                <button type="submit" class="btn btn-primary btn-block btn-flat" name="signin"><i class="fa fa-sign-in"></i> CHECK</button>
+              <input type="text" class="form-control input-lg" id="temperature" autocomplete="off" name="temperature" placeholder="PORPOSE">
+            </div>
+            <!-- Course Drop Down -->
+            <div class="form-group col-sm-4">
+              <input type="text" class="form-control input-lg" id="tagno" autocomplete="off" name="tagno" placeholder="GRADE">
             </div>
           </div>
-      </form>
-    </div>
+          <!-- Submit BUTTON -->
+          <div class="row">
+            <div class="col-sm-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat" name="signin"><i class="fa fa-sign-in"></i> CHECK</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- FORM CONTAINER (END) -->
+
     <div class="alert alert-success alert-dismissible mt20 text-center" style="display:none;">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <span class="result"><i class="icon fa fa-check"></i> <span class="message"></span></span>
