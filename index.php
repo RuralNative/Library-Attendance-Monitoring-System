@@ -34,7 +34,12 @@
           <div class="row" id="hideValueOnSelect">
             <!-- Purpose Drop Down -->
             <div class="form-group col-sm-8">
-              <input type="text" class="form-control input-lg" id="temperature" autocomplete="off" name="temperature" placeholder="PURPOSE">
+              <select class="form-control" name="temperature" id="temperature"">
+                <option value="STUDY">STUDY</option>
+                <option value="RESEARCH">RESEARCH</option>
+                <option value="BORROW BOOKS">BORROW BOOKS</option>
+                <option value="OTHERS">OTHERS</option>
+              </select>
             </div>
             <!-- Course Drop Down -->
             <div class="form-group col-sm-4">
@@ -80,33 +85,27 @@
       }, 100);
 
       $('#attendance').submit(function(e){
-        e.preventDefault();
-        var attendance = $(this).serialize();
-        $.ajax({
-          type: 'POST',
-          url: 'attendance.php',
-          data: attendance,
-          dataType: 'json',
-          success: function(response){
-            if(response.error){
-              $('.alert').hide();
-              $('.alert-danger').show();
-              $('.message').html(response.message);
-              $('#employee').val('');
-              $('#temperature').val('');
-              $('#tagno').val('');
-            } 
-            else{
-              $('.alert').hide();
-              $('.alert-success').show();
-              $('.message').html(response.message);
-              $('#employee').val('');
-              $('#temperature').val('');
-              $('#tagno').val('');
-            }
-          }
-        });
-      }); 
+  e.preventDefault();
+  var attendance = $(this).serialize();
+  $.ajax({
+    type: 'POST',
+    url: 'attendance.php',
+    data: attendance,
+    dataType: 'json',
+    success: function(response){
+      if(response.error){
+        $('.alert').hide();
+        $('.alert-danger').show();
+        $('.message').html(response.message);
+      } 
+      else{
+        $('.alert').hide();
+        $('.alert-success').show();
+        $('.message').html(response.message);
+      }
+    }
+  });
+}); 
     });
   </script>
   <!-- DO NOT MODIFY (END) -->
