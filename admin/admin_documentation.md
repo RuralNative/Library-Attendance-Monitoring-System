@@ -1,0 +1,17 @@
+# DOCUMENTATION FILE
+
+**Admin Page**
+
+## Introduction
+
+This Markdown document will serve as the official documentation of the Admin component page of the system. This is to ensure that future maintenance shall be implemented with convenience and ease. It shall also serve as the basis for future IT staff to properly diagnose and troubleshoot the system if problems occur during the proper functioning of the system.
+
+## Author
+
+Documentation author is provided by John Berlin Leonor with a nickname of RuralNative in his GitHub account. The documentation is created with supervision to the lead developer at the time of this writing, Sir Charlie Pelingon, and documentation begun in the 27th of October, 2023.
+Refer to them for any concerns/inquiries.
+
+## List of Components
+
+- [Home Page](admin/home.php) - Serves as the entry page of the Admin component of the system, showing relevant statistical data and navigational components to different subcomponents of the Admin.
+- [Home Page](admin/home.php)
