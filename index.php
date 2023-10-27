@@ -4,7 +4,7 @@
 <body class="hold-transition register-page">
 <!-- DO NOT MODIFY (END) -->
 
-  <!-- PAGE SCREEN -->
+  <!-- PAGE SCREEN (START) -->
   <div class="login-box">
       <!-- LOGO COMPONENT -->
       <div class="login-logos">
@@ -34,7 +34,7 @@
           <div class="row" id="hideValueOnSelect">
             <!-- Purpose Drop Down -->
             <div class="form-group col-sm-8">
-              <input type="text" class="form-control input-lg" id="temperature" autocomplete="off" name="temperature" placeholder="PORPOSE">
+              <input type="text" class="form-control input-lg" id="temperature" autocomplete="off" name="temperature" placeholder="PURPOSE">
             </div>
             <!-- Course Drop Down -->
             <div class="form-group col-sm-4">
@@ -51,6 +51,7 @@
       </div>
       <!-- FORM CONTAINER (END) -->
 
+    <!-- DO NOT MODIFY (START) -->
     <div class="alert alert-success alert-dismissible mt20 text-center" style="display:none;">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <span class="result"><i class="icon fa fa-check"></i> <span class="message"></span></span>
@@ -59,67 +60,74 @@
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <span class="result"><i class="icon fa fa-warning"></i> <span class="message"></span></span>
     </div>
-
     <div class="login-logo">
       <p id="date" style="color: white"></p>
       <p id="time" class="bold"></p>
     </div>
+    <!-- DO NOT MODIFY (END) -->
   
-      
-</div>
-  
-<?php include 'scripts.php' ?>
-<script type="text/javascript">
-$(function() {
-  var interval = setInterval(function() {
-    var momentNow = moment();
-    $('#date').html(momentNow.format('dddd').substring(0,3).toUpperCase() + ' - ' + momentNow.format('MMMM DD, YYYY'));  
-    $('#time').html(momentNow.format('hh:mm:ss A'));
-  }, 100);
+  </div>
+  <!-- PAGE SCREEN (END) -->
 
-  $('#attendance').submit(function(e){
-    e.preventDefault();
-    var attendance = $(this).serialize();
-    $.ajax({
-      type: 'POST',
-      url: 'attendance.php',
-      data: attendance,
-      dataType: 'json',
-      success: function(response){
-        if(response.error){
-          $('.alert').hide();
-          $('.alert-danger').show();
-          $('.message').html(response.message);
-          $('#employee').val('');
-          $('#temperature').val('');
-          $('#tagno').val('');
-        }
-        else{
-          $('.alert').hide();
-          $('.alert-success').show();
-          $('.message').html(response.message);
-          $('#employee').val('');
-           $('#temperature').val('');
-          $('#tagno').val('');
-        }
-      }
-    });
-  });
-    
-});
-
-</script>
-<script type="text/javascript">
-  function displayDiv(id, elementValue) {
-    document.getElementById(id).style.display = elementValue.value === 'in' ? 'block' : 'none'
-  }
-</script>
-<script type="text/javascript">
+  <!-- DO NOT MODIFY (START) -->
+  <?php include 'scripts.php' ?>
+  <script type="text/javascript">
     $(function() {
-       $( "#employee" ).autocomplete({
-         source: 'search.php',
-       });
+      var interval = setInterval(function() {
+        var momentNow = moment();
+        $('#date').html(momentNow.format('dddd').substring(0,3).toUpperCase() + ' - ' + momentNow.format('MMMM DD, YYYY'));  
+        $('#time').html(momentNow.format('hh:mm:ss A'));
+      }, 100);
+
+      $('#attendance').submit(function(e){
+        e.preventDefault();
+        var attendance = $(this).serialize();
+        $.ajax({
+          type: 'POST',
+          url: 'attendance.php',
+          data: attendance,
+          dataType: 'json',
+          success: function(response){
+            if(response.error){
+              $('.alert').hide();
+              $('.alert-danger').show();
+              $('.message').html(response.message);
+              $('#employee').val('');
+              $('#temperature').val('');
+              $('#tagno').val('');
+            } 
+            else{
+              $('.alert').hide();
+              $('.alert-success').show();
+              $('.message').html(response.message);
+              $('#employee').val('');
+              $('#temperature').val('');
+              $('#tagno').val('');
+            }
+          }
+        });
+      }); 
     });
-</script>
+  </script>
+  <!-- DO NOT MODIFY (END) -->
+
+  <!-- DO NOT MODIFY (START) -->
+  <script type="text/javascript">
+    function displayDiv(id, elementValue) {
+      document.getElementById(id).style.display = elementValue.value === 'in' ? 'block' : 'none'
+    }
+  </script>
+  <!-- DO NOT MODIFY (END) -->
+
+  <!-- DO NOT MODIFY (START) -->
+  <script type="text/javascript">
+    $(function() {
+      $( "#employee" ).autocomplete({
+        source: 'search.php',
+      });
+    });
+  </script>
+  <!-- DO NOT MODIFY (END) -->
+
 </body>
 </html>
