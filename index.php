@@ -1,22 +1,23 @@
+<!-- DO NOT MODIFY (START) -->
 <?php session_start(); ?>
 <?php include 'header.php'; ?>
 <body class="hold-transition register-page">
-<div class="login-box">
+<!-- DO NOT MODIFY (END) -->
 
-    <div class="login-logos">
-      <img src="images/logo-umat-2.jpg" alt="Avatar">
-    </div>
+  <!-- PAGE SCREEN -->
+  <div class="login-box">
+      <!-- Logo Component -->
+      <div class="login-logos">
+        <img src="images/logo-umat-2.jpg" alt="Avatar">
+      </div>
     
-    <div class="login-box-body">
-      <h4 class="login-box-msg" style="font-weight: bold; color: #3D6245; font-size: 20px;">S.I. A.</h4>
-
-      <!-- <style type="text/css">
-        #hideValueOnSelect {
-          display: none;
-        }
-      </style> -->
-
-      <form id="attendance">
+      <!-- Logo Title Component -->  
+      <div class="login-box-body">
+        <h4 class="login-box-msg" style="font-weight: bold; color: #3D6245; font-size: 20px;">
+          <b>CPSU</b> Library
+        </h4>
+        <!-- FORM -->
+        <form id="attendance">
           <div class="form-group">
             <select class="form-control" name="status" id="status" onchange="displayDiv('hideValueOnSelect', this)">
               <option value="in">CHECK IN</option>
