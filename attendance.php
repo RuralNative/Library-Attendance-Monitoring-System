@@ -46,7 +46,7 @@
 				}
 			}
 			else{
-				$sql = "SELECT *, attendance.id AS uid FROM attendance LEFT JOIN students ON students.id=attendance.reference_number WHERE attendance.reference_number = '$id' AND date = '$date_now'";
+				$sql = "SELECT *, attendance.id AS uid FROM attendance LEFT JOIN students ON students.id=attendance.reference_number WHERE attendance.reference_number = '$id' AND date = '$date_now' AND status = 0";
 				$query = $conn->query($sql);
 				if($query->num_rows < 1){
 					$output['error'] = true;
