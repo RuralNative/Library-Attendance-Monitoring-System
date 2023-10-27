@@ -7,7 +7,7 @@
 		$firstname = $_POST['firstname'];
 		$residence = $_POST['residence'];
 		$programme = $_POST['programme'];
-		$sql = "INSERT INTO students (reference_number, firstname, residence) VALUES ('$reference_number', '$firstname', '$residence', '$programme')";
+		$sql = "INSERT INTO students (reference_number, firstname, residence, programme) VALUES ('$reference_number', '$firstname', '$residence', '$programme')";
 
 		//use for MySQLi OOP
 		if($conn->query($sql)){
