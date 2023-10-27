@@ -4,7 +4,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo (!empty($user['photo'])) ? '../images/'.$user['photo'] : '../images/logo-umat-2.jpg'; ?>" class="img-circle" alt="User Image">
+          <img src="<?php echo (!empty($user['photo'])) ? '../images/'.$user['photo'] : '../images/cpsu_logo.webp'; ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p><?php echo $user['firstname'].' '.$user['lastname']; ?></p>
