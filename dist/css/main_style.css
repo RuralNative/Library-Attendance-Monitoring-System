@@ -1,11 +1,14 @@
 body {
     color: #fff;
     background-color: #fff;
+    overflow: hidden;
 }
 
 .register-page {
-	background:linear-gradient(to bottom,#72a57d 80%, #3d523e 100%);
+	background-image: url('../../images/cpsu_bg.jpg');
+	background-repeat: no-repeat;
 	background-attachment: fixed;
+    background-size: cover;
 }
 
 .btn-primary{
