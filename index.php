@@ -8,7 +8,7 @@
   <div class="login-box">
       <!-- Logo Component -->
       <div class="login-logos">
-        <img src="images/logo-umat-2.jpg" alt="Avatar">
+        <img src="images/cpsu_logo.webp" alt="CPSU Logo">
       </div>
     
       <!-- Logo Title Component -->  
