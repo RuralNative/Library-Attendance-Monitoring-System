@@ -11,7 +11,7 @@
 			<form method="POST" action="add.php">
 				<div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">LRN:</label>
+						<label class="control-label modal-label">LRN: <b>*</b></label>
 					</div>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="reference_number" required>
@@ -19,7 +19,7 @@
 				</div>
 				<div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Full Name:</label>
+						<label class="control-label modal-label">Full Name: <b>*</b></label>
 					</div>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="firstname" required>
@@ -33,7 +33,7 @@
 						<label class="control-label modal-label">Email:</label>
 					</div>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="email" required>
+						<input type="text" class="form-control" name="email">
 					</div>
 				</div>
 
@@ -42,7 +42,7 @@
 						<label class="control-label modal-label">Phone Number:</label>
 					</div>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="phone" required>
+						<input type="text" class="form-control" name="phone">
 					</div>
 				</div>
 					<div class="row form-group">
@@ -50,7 +50,7 @@
 						<label class="control-label modal-label">Address:</label>
 					</div>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="residence_status" required>
+						<input type="text" class="form-control" name="residence_status">
 					</div>
 				</div>
 
@@ -59,7 +59,7 @@
 						<label class="control-label modal-label">Year:</label>
 					</div>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="residence" required>
+						<input type="text" class="form-control" name="residence">
 					</div>
 				</div>
 
@@ -68,7 +68,7 @@
 						<label class="control-label modal-label">Section:</label>
 					</div>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="programme" required>
+						<input type="text" class="form-control" name="programme">
 					</div>
 				</div>
 
