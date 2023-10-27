@@ -18,17 +18,17 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo (!empty($user['photo'])) ? '../images/'.$user['photo'] : '../images/profile.jpg'; ?>" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php echo $user['firstname'].' '.$user['lastname']; ?></span>
+              <img src='../images/cpsu_logo.webp' class="user-image" alt="User Image">
+              <span class="hidden-xs">CPSU - Moises Padilla Library</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo (!empty($user['photo'])) ? '../images/'.$user['photo'] : '../images/profile.jpg'; ?>" class="img-circle" alt="User Image">
+                <img src='../images/cpsu_logo.webp' class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo $user['firstname'].' '.$user['lastname']; ?>
-                  <small>Member since <?php echo date('M. Y', strtotime($user['created_on'])); ?></small>
+                  Library Admin
+                  <small>Official Library Management Account</small>
                 </p>
               </li>
               <li class="user-footer">
