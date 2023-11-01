@@ -13,7 +13,10 @@ Refer to them for any concerns/inquiries.
 
 ## List of Components
 
+- [Database Connection Script](includes\conn.php) - Serves as a CRITICAL script that ensures that the Admin Web Application is properly connected to the database.
 - [Home Page Component](home.php) - Serves as the entry page of the Admin component of the system, showing relevant statistical data and navigational components to different subcomponents of the Admin.
 - [Students Page Component](1index.php) - Serves as the page that provides the following functions: (1) show list of registered students in the database, (2) search functinonality for students, (3) options to add, edit, or delete a student's information to the database, and (4) option to import students' information by bulk to the database through a CSV/Excel file
 - [Add Modal Component](add_modal.php) - Serves as the modal component that allows admin to add students to the database. All input fields inside the modal are required by default. Accessible by clicking the 'New' button as shown in the page produced by the [Students Page Component](1index.php)
 - [Add PHP Script](add.php) - Serves as the PHP script for adding a student's information to the database.
+- [Footer Script](includes\footer.php) - Serves as the PHP script responsible for the content of the footer located at the bottom part of the web page, containing COPYRIGHT DISCLAIMER and DEVELOPERS' NAMES
+- [Header Script](includes\header.php) - Serves as the PHP script responsible for the necessary dependencies usually located at the Header Tag of used for the Admin Web Pages, containing HTML script for the tab title description and necessary CSS and JS importations.
