@@ -109,9 +109,9 @@
 			<div class="row">
 				<table id="myTable" class="table table-bordered table-striped">
 					<thead>
-						<th>LRN</th>
+						<th>Student ID</th>
 						<th>Full Name</th>
-						<th>Year/section</th>
+						<th>Residence and Course</th>
 						<th>Action</th>
 
 					</thead>
