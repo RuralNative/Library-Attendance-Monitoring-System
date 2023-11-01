@@ -23,3 +23,5 @@ Refer to them for any concerns/inquiries.
 - [Menu Bar Script](includes\menubar.php) - Serves as the PHP script responsible for the responsive menubar providing links to the different web pages of the web application.
 - [Navigation Bar Script](includes\navbar.php) - Serves as the PHP script responsible for the responsive navigation bar that shows the top section of the web page.
 - [Profile Modal Script](includes\profile_modal.php) - Serves as the PHP script responsible for the responsive modal that shows upon clicking the profile button at the top right side of the web page.
+- [Session Script](includes\session.php) - Serves as a CRITICAL PHP script responsible for managing the sessions of the web application.
+- [Scripts PHP Script](includes\scripts.php) - Serves as a CRITICAL PHP script responsible for the JS script importations for the web application.
