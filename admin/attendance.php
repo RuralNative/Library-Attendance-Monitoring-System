@@ -1,70 +1,107 @@
+ <!-- DO NOT MODIFY (START) -->
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
+ <!-- DO NOT MODIFY (END) -->
+
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+  <div class="wrapper">
+     <!-- Standard PHP Dependencies -->
+    <?php include 'includes/navbar.php'; ?>
+    <?php include 'includes/menubar.php'; ?>
+    <!-- Date PHP Script -->
+    <?php
+      include '../timezone.php';
+      $range_to = date('m/d/Y');
+      $range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
+    ?>
 
-  <?php include 'includes/navbar.php'; ?>
-  <?php include 'includes/menubar.php'; ?>
-  <?php
-    include '../timezone.php';
-    $range_to = date('m/d/Y');
-    $range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
-  ?>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Attendance
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Attendance</li>
-      </ol>
-    </section>
-    <!-- Main content -->
-    <section class="content">
-      <?php
-        if(isset($_SESSION['error'])){
-          echo "
-            <div class='alert alert-danger alert-dismissible'>
-              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-              <h4><i class='icon fa fa-warning'></i> Error!</h4>
-              ".$_SESSION['error']."
-            </div>
-          ";
-          unset($_SESSION['error']);
-        }
-        if(isset($_SESSION['success'])){
-          echo "
-            <div class='alert alert-success alert-dismissible'>
-              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-              <h4><i class='icon fa fa-check'></i> Success!</h4>
-              ".$_SESSION['success']."
-            </div>
-          ";
-          unset($_SESSION['success']);
-        }
-      ?>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header with-border">
-              <div class="pull-right">
-                <form method="POST" class="form-inline" id="payForm">
-                  <div class="input-group">
-                    <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
+    <!-- CONTENT Wrapper -->
+    <div class="content-wrapper">      
+      <!-- CONTENT Header-->
+      <section class="content-header">
+        <h1>
+          Library Attendance
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Attendance</li>
+        </ol>
+      </section>
+      
+      <!-- MAIN Content Wrapper -->
+      <section class="content">
+        <!-- SESSION Success/Error Message Scripts  -->     
+        <?php
+          if(isset($_SESSION['error'])){
+            echo 
+              "<div class='alert alert-danger alert-dismissible'>
+                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>
+                  &times;
+                </button>
+                <h4>
+                  <i class='icon fa fa-warning'></i> 
+                  Error!
+                </h4>
+                ".$_SESSION['error']."
+              </div>"
+            ;
+            unset($_SESSION['error']);
+          }
+          if(isset($_SESSION['success'])){
+            echo 
+              "<div class='alert alert-success alert-dismissible'>
+                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>
+                  &times;
+                </button>
+                <h4>
+                  <i class='icon fa fa-check'></i> 
+                  Success!
+                </h4>
+                ".$_SESSION['success']."
+              </div>"
+            ;
+            unset($_SESSION['success']);
+          }
+        ?>
+        
+        <!-- TABLE Page Component -->
+        <div class="row">
+          <div class="col-xs-12">
+            
+            <!-- Data Filter/Report Printing Input Component (START) -->
+            <div class="box">
+              <div class="box-header with-border">
+                <div class="pull-right">
+                  <form method="POST" class="form-inline" id="payForm">
+                    <!-- Date Range Input -->
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <input 
+                        type = "text" 
+                        class = "form-control pull-right col-sm-8" 
+                        id = "reservation" 
+                        name = "date_range" 
+                        value = "<?php echo (isset($_GET['range'])) ? $_GET['range'] : $range_from.' - '.$range_to; ?>"
+                      >
                     </div>
-                    <input type="text" class="form-control pull-right col-sm-8" id="reservation" name="date_range" value="<?php echo (isset($_GET['range'])) ? $_GET['range'] : $range_from.' - '.$range_to; ?>">
-                  </div>
-                  <button type="button" class="btn btn-success btn-sm btn-flat" id="print_attend"><span class="glyphicon glyphicon-print"></span> Attendance</button>
-                </form>
+                    <!-- 
+                      Report Printout Button 
+                      Refer attendance_generate for PRINT FUNCTIONALITY 
+                    -->
+                    <button type="button" class="btn btn-success btn-sm btn-flat" id="print_attend">
+                      <span class="glyphicon glyphicon-print"></span> 
+                      Print Data
+                    </button>
+                  </form>
+                </div>
               </div>
-            </div>
             <div class="box-body">
-              <table id="example1" class="table table-bordered">
+            <!-- Data Filter/Report Printing Input Component (END) -->
+
+            <!-- Table Component (START) -->
+            <table id="example1" class="table table-bordered">
                 <thead>
                   <th class="hidden"></th>
                   <th>Date</th>
