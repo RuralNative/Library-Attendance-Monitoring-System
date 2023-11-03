@@ -17,6 +17,7 @@
 
     <!-- CONTENT Wrapper -->
     <div class="content-wrapper">      
+      
       <!-- CONTENT Header-->
       <section class="content-header">
         <h1>
@@ -27,9 +28,10 @@
           <li class="active">Attendance</li>
         </ol>
       </section>
-      
-      <!-- MAIN Content Wrapper -->
+
+      <!-- MAIN Content Wrapper (START) -->
       <section class="content">
+        
         <!-- SESSION Success/Error Message Scripts  -->     
         <?php
           if(isset($_SESSION['error'])){
@@ -63,11 +65,11 @@
             unset($_SESSION['success']);
           }
         ?>
-        
-        <!-- TABLE Page Component -->
+
+        <!-- MAIN Component Content (START) -->
         <div class="row">
           <div class="col-xs-12">
-            
+
             <!-- Data Filter/Report Printing Input Component (START) -->
             <div class="box">
               <div class="box-header with-border">
@@ -88,7 +90,7 @@
                     </div>
                     <!-- 
                       Report Printout Button 
-                      Refer attendance_generate for PRINT FUNCTIONALITY 
+                      Refer ATTENDANCE_GENERATE.PHP for PRINT FUNCTIONALITY 
                     -->
                     <button type="button" class="btn btn-success btn-sm btn-flat" id="print_attend">
                       <span class="glyphicon glyphicon-print"></span> 
@@ -104,18 +106,26 @@
             <table id="example1" class="table table-bordered">
                 <thead>
                   <th class="hidden"></th>
-                  <th>Date</th>
-                  <th>Students ID</th>
-                  <th>Full Name</th>
-                  <th>PORPOSE</th>
-                  <th>GRADE</th>
-                  <th>Time In</th>
-                  <th>Time Out</th>
-                  <th>Tools</th>
+                  <th>DATE</th>
+                  <th>STUDENTS ID</th>
+                  <th>FULL NAME</th>
+                  <th>PURPOSE</th>
+                  <th>PROGRAMME</th>
+                  <th>TIME IN</th>
+                  <th>TIME OUT</th>
+                  <th>TOOLS</th>
                 </thead>
                 <tbody>
+                  <!-- Student Info Query PHP Script (START) -->
                   <?php
-                    $sql = "SELECT *, students.reference_number AS empid, attendance.id AS attid FROM attendance LEFT JOIN students ON students.id=attendance.reference_number ORDER BY attendance.date DESC, attendance.time_in DESC";
+                    $sql = 
+                      "SELECT *, 
+                        students.reference_number AS empid, 
+                        attendance.id AS attid 
+                        FROM attendance 
+                        LEFT JOIN students 
+                        ON students.id=attendance.reference_number 
+                        ORDER BY attendance.date DESC, attendance.time_in DESC";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       $status = ($row['status'])?'<span class="label label-warning pull-right">Out</span>':'<span class="label label-danger pull-right">In</span>';
@@ -137,6 +147,7 @@
                       ";
                     }
                   ?>
+                  <!-- Student Info Query PHP Script (END) -->
                 </tbody>
               </table>
             </div>
