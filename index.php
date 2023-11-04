@@ -1,6 +1,10 @@
 <!-- DO NOT MODIFY (START) -->
 <?php session_start(); ?>
 <?php include 'header.php'; ?>
+<head>
+  <!-- Include the html5-qrcode library -->
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
 <body class="hold-transition register-page">
 <!-- DO NOT MODIFY (END) -->
 
@@ -27,8 +31,7 @@
           </div>
           <!-- Student ID COMPONENT -->
           <div class="form-group has-feedback">
-            <input type="text" class="form-control input-lg" id="employee" name="employee" placeholder="STUDENT ID" required>
-            <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+            <input type="text" class="form-control input-lg" id="employee" name="employee" placeholder="Student ID" required>
           </div>
           <!-- Purpose/Course COMPONENT (ROW) -->
           <div class="row" id="hideValueOnSelect">
@@ -50,10 +53,15 @@
               </select>
             </div>
           </div>
-          <!-- Submit BUTTON -->
+          <!-- QR Code/Submit Section -->
           <div class="row">
             <div class="col-sm-4">
               <button type="submit" class="btn btn-primary btn-block btn-flat" name="signin"><i class="fa fa-sign-in"></i> CHECK</button>
+            </div>
+            <div class="col-sm-8">
+              <button type="button" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="#qrModal">
+                Want to use QR Scanner?
+              </button>
             </div>
           </div>
         </form>
@@ -132,5 +140,51 @@
   </script>
   <!-- DO NOT MODIFY (END) -->
 
+  <!-- MODAL -->
+  <div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrModalLabel">QR Scanner</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Div to show the QR code scanner -->
+                    <div id="qr-reader" style="width:100%"></div>
+                    <div id="qr-reader-results"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Script for QR Input Handling -->
+    <script>
+        var resultContainer = document.getElementById('qr-reader-results');
+        var lastResult, countResults = 0;
+
+        function onScanSuccess(decodedText, decodedResult) {
+            if (decodedText !== lastResult) {
+                ++countResults;
+                lastResult = decodedText;
+            
+                // Handle on success condition with the decoded message.
+                console.log(`Scan result ${decodedText}`, decodedResult);
+            }
+        }
+
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "qr-reader", { fps: 10, qrbox: 250 }
+        );
+
+        $('#qrModal').on('shown.bs.modal', function () {
+            html5QrcodeScanner.render(onScanSuccess);
+        });
+
+        $('#qrModal').on('hidden.bs.modal', function () {
+            html5QrcodeScanner.clear();
+        });
+    </script>
 </body>
 </html>
