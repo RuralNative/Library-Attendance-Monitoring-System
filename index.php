@@ -169,14 +169,19 @@
         var lastResult, countResults = 0;
 
         function onScanSuccess(decodedText, decodedResult) {
-            if (decodedText !== lastResult) {
-                ++countResults;
-                lastResult = decodedText;
-            
-                // Handle on success condition with the decoded message.
-                console.log(`Scan result ${decodedText}`, decodedResult);
-            }
-        }
+          if (decodedText !== lastResult) {
+            ++countResults;
+            lastResult = decodedText;
+        
+            // Fill the form with the scanned data.
+            document.getElementById('employee').value = decodedText;
+
+            // Submit the form.
+            document.getElementById('attendance').submit();
+        
+            console.log(`Scan result ${decodedText}`, decodedResult);
+    }
+}
 
         var html5QrcodeScanner = new Html5QrcodeScanner(
             "qr-reader", { fps: 10, qrbox: 250 }
