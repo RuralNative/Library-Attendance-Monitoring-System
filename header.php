@@ -21,4 +21,5 @@
         font-weight: bold;
       }
   	</style>
+	 <?php include 'scripts.php' ?>
 </head>

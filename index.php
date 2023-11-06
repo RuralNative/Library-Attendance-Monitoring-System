@@ -81,10 +81,7 @@
   </div>
   <!-- PAGE SCREEN (END) -->
 
-  <iframe src="qr_modal.php" frameborder="0"></iframe>
-
   <!-- DO NOT MODIFY (START) -->
-  <?php include 'scripts.php' ?>
   <script type="text/javascript">
     $(function() {
       var interval = setInterval(function() {
