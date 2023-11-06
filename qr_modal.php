@@ -23,35 +23,39 @@
 
 <!-- JS Script for QR Input Handling -->
 <script>
-(function($) {
+document.addEventListener("DOMContentLoaded", function() {
+  (function($) {
     var resultContainer = document.getElementById('qr-reader-results');
     var lastResult, countResults = 0;
 
     function onScanSuccess(decodedText, decodedResult) {
-        if (decodedText !== lastResult) {
-            ++countResults;
-            lastResult = decodedText;
-        
-            // Fill the form with the scanned data.
-            document.getElementById('employee').value = decodedText;
+      if (decodedText !== lastResult) {
+        ++countResults;
+        lastResult = decodedText;
+        console.log(`Scan result AFTER IF LOOP ${decodedText}`, decodedResult)
 
-            // Submit the form.
-            document.getElementById('attendance').submit();
-        
-            console.log(`Scan result ${decodedText}`, decodedResult);
-        }
+        // Fill the form with the scanned data.
+        document.getElementById('employee').value = decodedText;
+        console.log(`Scan result DECODED TEXT IF LOOP ${decodedText}`, decodedResult);
+
+        // Trigger the form submission function.
+        $('#attendance').submit();
+
+        console.log(`Scan result SUCCESS IF LOOP ${decodedText}`, decodedResult);
+      }
     }
 
     var html5QrcodeScanner = new Html5QrcodeScanner(
-        "qr-reader", { fps: 10, qrbox: 250 }
+      "qr-reader", { fps: 10, qrbox: 250 }
     );
 
     $('#qrModal').on('shown.bs.modal', function () {
-        html5QrcodeScanner.render(onScanSuccess);
+      html5QrcodeScanner.render(onScanSuccess);
     });
 
     $('#qrModal').on('hidden.bs.modal', function () {
-        html5QrcodeScanner.clear();
+      html5QrcodeScanner.clear();
     });
-})(jQuery.noConflict(true));
+  })(jQuery.noConflict(true));
+});
 </script>
