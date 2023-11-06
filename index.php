@@ -130,6 +130,6 @@
   </script>
   <!-- DO NOT MODIFY (END) -->
 
-  <? php include 'qr_modal.php' ?>
+  <?php include 'qr_modal.php' ?>
 </body>
 </html>
