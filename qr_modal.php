@@ -38,29 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('employee').value = decodedText;
         console.log(`Scan result DECODED TEXT IF LOOP ${decodedText}`, decodedResult);
 
-        // Submit Student ID for process
+        // Trigger the form submission function.
+        $('#attendance').submit();
+
         console.log(`Scan result SUCCESS IF LOOP ${decodedText}`, decodedResult);
-        document.getElementById('attendance').submit(function(e){
-            e.preventDefault();
-            var attendance = $(this).serialize();
-            $.ajax({
-                type: 'POST',
-                url: 'attendance.php',
-                data: attendance,
-                dataType: 'json',
-                success: function(response){
-                    if(response.error){
-                        $('.alert').hide();
-                        $('.alert-danger').show();
-                        $('.message').html(response.message);
-                    } else{
-                        $('.alert').hide();
-                        $('.alert-success').show();
-                        $('.message').html(response.message);
-                    }
-                }
-            });
-        });
       }
     }
 
