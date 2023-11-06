@@ -23,7 +23,6 @@
 <!-- JS Script for QR Input Handling -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  (function($) {
     var resultContainer = document.getElementById('qr-reader-results');
     var lastResult, countResults = 0;
 
@@ -45,8 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
     $('#qrModal').on('shown.bs.modal', function () {
       html5QrcodeScanner.render(onScanSuccess);
     });
-  })(jQuery.noConflict(true));
-});
+})
 </script>
 </body>
 </html>
