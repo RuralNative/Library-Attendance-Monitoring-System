@@ -55,7 +55,7 @@
               <button type="submit" class="btn btn-primary btn-block btn-flat" name="signin"><i class="fa fa-sign-in"></i> CHECK</button>
             </div>
             <div class="col-sm-8">
-              <button type="button" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="qr_modal.php">
+              <button type="button" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="#qrModal">
                 Want to use QR Scanner?
               </button>
             </div>
@@ -82,38 +82,37 @@
   <!-- PAGE SCREEN (END) -->
 
   <!-- DO NOT MODIFY (START) -->
-  <script type="text/javascript">
-    $(function() {
+  <?php include 'scripts.php' ?>
+    <script type="text/javascript">
       var interval = setInterval(function() {
         var momentNow = moment();
         $('#date').html(momentNow.format('dddd').substring(0,3).toUpperCase() + ' - ' + momentNow.format('MMMM DD, YYYY'));  
         $('#time').html(momentNow.format('hh:mm:ss A'));
-      }, 100);
+        }, 100);
 
-      $('#attendance').submit(function(e){
-        e.preventDefault();
-        var attendance = $(this).serialize();
-        $.ajax({
-          type: 'POST',
-          url: 'attendance.php',
-          data: attendance,
-          dataType: 'json',
-          success: function(response){
-            if(response.error){
-              $('.alert').hide();
-              $('.alert-danger').show();
-              $('.message').html(response.message);
-            } 
-            else{
-              $('.alert').hide();
-              $('.alert-success').show();
-              $('.message').html(response.message);
+        $('#attendance').submit(function(e){
+          e.preventDefault();
+          var attendance = $(this).serialize();
+          $.ajax({
+            type: 'POST',
+            url: 'attendance.php',
+            data: attendance,
+            dataType: 'json',
+            success: function(response){
+              if(response.error){
+                $('.alert').hide();
+                $('.alert-danger').show();
+                $('.message').html(response.message);
+              } 
+              else{
+                $('.alert').hide();
+                $('.alert-success').show();
+                $('.message').html(response.message);
+              }
             }
-          }
-        });
-      }); 
-    });
-  </script>
+          });
+        }); 
+    </script>
   <!-- DO NOT MODIFY (END) -->
 
   <!-- DO NOT MODIFY (START) -->
@@ -123,5 +122,9 @@
     }
   </script>
   <!-- DO NOT MODIFY (END) -->
+
+  <!-- DO NOT MODIFY (END) -->
+  <?php include 'qr_modal.php' ?>
+
 </body>
 </html>
