@@ -39,9 +39,34 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(`Scan result DECODED TEXT IF LOOP ${decodedText}`, decodedResult);
 
         // Trigger the form submission function.
-        $('#attendance').submit();
+        //$('#attendance').submit();
 
-        console.log(`Scan result SUCCESS IF LOOP ${decodedText}`, decodedResult);
+        // Get the parent window
+        $('#qrModal').modal('hide');
+        $('#attendance').submit(function(e) {
+            e.preventDefault();
+            // Get the form data
+            var formData = $(this).serialize();
+            // Submit the form using AJAX
+            $.ajax({
+                type: 'POST',
+                url: 'attendance.php',
+                data: formData,
+                dataType: 'json',
+                success: function(response) {
+                    if (response.error) {
+                        $('.alert').hide();
+                        $('.alert-danger').show();
+                        $('.message').html(response.message);
+                    } else {
+                        $('.alert').hide();
+                        $('.alert-success').show();
+                        $('.message').html(response.message);
+                    }
+                }
+            });
+            console.log(`Scan result SUCCESS IF LOOP ${decodedText}`, decodedResult);
+        });
       }
     }
 
