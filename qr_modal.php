@@ -46,15 +46,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     var html5QrcodeScanner = new Html5QrcodeScanner(
-      "qr-reader", { fps: 10, qrbox: 250 }
+      "qr-reader", { fps: 32, qrbox: 250 }
     );
 
     $('#qrModal').on('shown.bs.modal', function () {
       html5QrcodeScanner.render(onScanSuccess);
-    });
-
-    $('#qrModal').on('hidden.bs.modal', function () {
-      html5QrcodeScanner.clear();
     });
   })(jQuery.noConflict(true));
 });
