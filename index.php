@@ -1,10 +1,6 @@
 <!-- DO NOT MODIFY (START) -->
 <?php session_start(); ?>
 <?php include 'header.php'; ?>
-<head>
-  <!-- Include the html5-qrcode library -->
-  <script src="https://unpkg.com/html5-qrcode"></script>
-</head>
 <body class="hold-transition register-page">
 <!-- DO NOT MODIFY (END) -->
 
@@ -59,7 +55,7 @@
               <button type="submit" class="btn btn-primary btn-block btn-flat" name="signin"><i class="fa fa-sign-in"></i> CHECK</button>
             </div>
             <div class="col-sm-8">
-              <button type="button" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="#qrModal">
+              <button type="button" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="qr_modal.php">
                 Want to use QR Scanner?
               </button>
             </div>
@@ -85,7 +81,7 @@
   </div>
   <!-- PAGE SCREEN (END) -->
 
-  <?php include 'qr_modal.php' ?>
+  <iframe src="qr_modal.php" frameborder="0"></iframe>
 
   <!-- DO NOT MODIFY (START) -->
   <?php include 'scripts.php' ?>

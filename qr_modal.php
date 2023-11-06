@@ -2,6 +2,7 @@
 <head>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/html5-qrcode"></script>
 </head>
 <body>
 <!-- MODAL -->
@@ -39,36 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // Fill the form with the scanned data.
         document.getElementById('employee').value = decodedText;
         console.log(`Scan result DECODED TEXT IF LOOP ${decodedText}`, decodedResult);
-
-        // Trigger the form submission function.
-        //$('#attendance').submit();
-
-        // Get the parent window
-        $('#qrModal').modal('hide');
-        $('#attendance').submit(function(e) {
-            e.preventDefault();
-            // Get the form data
-            var formData = $(this).serialize();
-            // Submit the form using AJAX
-            $.ajax({
-                type: 'POST',
-                url: 'attendance.php',
-                data: formData,
-                dataType: 'json',
-                success: function(response) {
-                    if (response.error) {
-                        $('.alert').hide();
-                        $('.alert-danger').show();
-                        $('.message').html(response.message);
-                    } else {
-                        $('.alert').hide();
-                        $('.alert-success').show();
-                        $('.message').html(response.message);
-                    }
-                }
-            });
-            console.log(`Scan result SUCCESS IF LOOP ${decodedText}`, decodedResult);
-        });
       }
     }
 
