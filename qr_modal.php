@@ -1,8 +1,6 @@
-<html>
-<head>
+<!-- HTML5 - QRCODE API -->
 <script src="https://unpkg.com/html5-qrcode"></script>
-</head>
-<body>
+
 <!-- MODAL -->
 <div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="qrModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -40,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(`Scan result DECODED TEXT IF LOOP ${decodedText}`, decodedResult);
       }
     }
-
     var html5QrcodeScanner = new Html5QrcodeScanner(
       "qr-reader", { fps: 32, qrbox: 250 }
     );
