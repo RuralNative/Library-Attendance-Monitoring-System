@@ -82,9 +82,10 @@
       <p id="time" class="bold"></p>
     </div>
     <!-- DO NOT MODIFY (END) -->
-  
   </div>
   <!-- PAGE SCREEN (END) -->
+
+  <?php include 'qr_modal.php' ?>
 
   <!-- DO NOT MODIFY (START) -->
   <?php include 'scripts.php' ?>
@@ -129,7 +130,5 @@
     }
   </script>
   <!-- DO NOT MODIFY (END) -->
-
-  <?php include 'qr_modal.php' ?>
 </body>
 </html>
