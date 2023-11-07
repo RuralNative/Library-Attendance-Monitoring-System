@@ -2,7 +2,7 @@
 <script src="https://unpkg.com/html5-qrcode"></script>
 
 <!-- MODAL -->
-<div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="qrModalLabel" aria-hidden="true">
+<div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="qrModalLabel" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,7 +22,10 @@
 
 <!-- JS Script for QR Input Handling -->
 <script>
+var html5QrcodeScanner = null;
+
 document.addEventListener("DOMContentLoaded", function() {
+    $('#qrModal').modal('show');
     var resultContainer = document.getElementById('qr-reader-results');
     var lastResult, countResults = 0;
 
@@ -30,21 +33,27 @@ document.addEventListener("DOMContentLoaded", function() {
       if (decodedText !== lastResult) {
         ++countResults;
         lastResult = decodedText;
-        console.log(`Scan result AFTER IF LOOP ${decodedText}`, decodedResult)
 
         // Fill the form with the scanned data.
         document.getElementById('employee').value = decodedText;
         console.log(`Scan result DECODED TEXT IF LOOP ${decodedText}`, decodedResult);
+
+        $('#qrModal').modal('hide');
       }
     }
-    var html5QrcodeScanner = new Html5QrcodeScanner(
-      "qr-reader", { fps: 32, qrbox: 250 }
-    );
 
     $('#qrModal').on('shown.bs.modal', function () {
-      html5QrcodeScanner.render(onScanSuccess);
+        if (html5QrcodeScanner === null) {
+            html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", { fps: 32, qrbox: 250 });
+            html5QrcodeScanner.render(onScanSuccess);
+        }
+    });
+
+    $('#qrModal').on('hidden.bs.modal', function () {
+        html5QrcodeScanner.clear().then(() => {
+            html5QrcodeScanner = null;
+            lastResult = null;  // Reset lastResult
+        });
     });
 })
 </script>
-</body>
-</html>
