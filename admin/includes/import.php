@@ -22,6 +22,11 @@ if (isset($_POST['submit'])) {
 	while (($data = fgetcsv($handle, 5000, ",")) !== FALSE) {
 		$reference_number = $data[0];
 
+		// Skip rows with empty/invalid student ID
+		if (trim($reference_number) === '') {
+			continue;
+		}
+
     	// Check if the student ID already exists in the database
     	$existingStudent = $conn -> query(	
 			"SELECT reference_number 
