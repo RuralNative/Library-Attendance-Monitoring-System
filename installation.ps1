@@ -23,59 +23,47 @@ $subheader = @"
                                |___/          |___/                                   
 "@
 
-$author = @"
-
-
-
-
- __ \                  |                      |  |             ___|  ___|  ___|           \  |      _)                  _ \           |_) | |        __ \                  |                                  |   __ __|                      
- |   |  _ \\ \   / _ \ |  _ \  __ \   _ \  _` |  __ \  |   |  |     |    \___ \          |\/ |  _ \  |  __|  _ \  __|  |   | _` |  _` | | | |  _` |  |   |  _ \\ \   / _ \ |  _ \  __ \  __ `__ \   _ \ __ \  __|    |  _ \  _` | __ `__ \ _) 
- |   |  __/ \ \ /  __/ | (   | |   |  __/ (   |  |   | |   |  |     |          | _____|  |   | (   | |\__ \  __/\__ \  ___/ (   | (   | | | | (   |  |   |  __/ \ \ /  __/ | (   | |   | |   |   |  __/ |   | |      |  __/ (   | |   |   |   
-____/ \___|  \_/ \___|_|\___/  .__/ \___|\__,_| _.__/ \__, | \____|\____|_____/         _|  _|\___/ _|____/\___|____/ _|   \__,_|\__,_|_|_|_|\__,_| ____/ \___|  \_/ \___|_|\___/  .__/ _|  _|  _|\___|_|  _|\__|   _|\___|\__,_|_|  _|  _|_) 
-                              _|                      ____/                                                                                                                       _|                                                          
-   \     ___| |                |_)        _ \      |_)                         
-\    /  |     __ \   _` |  __| | |  _ \  |   | _ \ | | __ \   _` |  _ \  __ \  
- _  _\  |     | | | (   | |    | |  __/  ___/  __/ | | |   | (   | (   | |   | 
-  \/   \____|_| |_|\__,_|_|   _|_|\___| _|   \___|_|_|_|  _|\__, |\___/ _|  _| 
-                                                            |___/              
-   \        |       |            __ )            |_)        |                                 
-\    /      |  _ \  __ \  __ \   __ \   _ \  __| | | __ \   |      _ \  _ \  __ \   _ \   __| 
- _  _\  \   | (   | | | | |   |  |   |  __/ |    | | |   |  |      __/ (   | |   | (   | |    
-  \/   \___/ \___/ _| |_|_|  _| ____/ \___|_|   _|_|_|  _| _____|\___|\___/ _|  _|\___/ _|    
-                                                                                                        
-"@
-
 Write-Host $header
-Write-Host $header
-Write-Host $author
-
-
-Write-Host "Please wait as we prepare the installation process"
+Write-Host $subheader
+Write-Host "------------------------------------------------------------------------------------------------------"
+Write-Host "Developed by the College of Computer Studies - Moises Padilla Dev Team"
+Write-Host "Software Developer I: CHARLIE PELINGON"
+Write-Host "Software Developer I: JOHN BERLIN LEONOR"
+Write-Host "------------------------------------------------------------------------------------------------------"
+Write-Host "Please wait as we tinker the installation process for you"
 Start-Sleep -Seconds 10
 
 # Copy files from the source folder to the destination folder
-$fileCount = (Get-ChildItem -Path $sourceFolder -File).Count
+$files = Get-ChildItem -Path $sourceFolder -File
+$fileCount = $files.Count
 $progress = 0
 
-Get-ChildItem -Path $sourceFolder -File | ForEach-Object {
-    $destinationPath = Join-Path -Path $destinationFolder -ChildPath $_.Name
-    Copy-Item -Path $_.FullName -Destination $destinationPath -Verbose
+foreach ($file in $files) {
+    $destinationPath = Join-Path -Path $destinationFolder -ChildPath $file.Name
+    Copy-Item -Path $file.FullName -Destination $destinationPath -Verbose
     $progress++
     $percentComplete = ($progress / $fileCount) * 100
     Write-Progress -Activity "Copying Files" -Status "Progress" -PercentComplete $percentComplete
+    Write-Host "Copying file: $($file.Name)"
 }
 
 # Copy folders and their contents from the source folder to the destination folder
-$folderCount = (Get-ChildItem -Path $sourceFolder -Directory).Count
+$folders = Get-ChildItem -Path $sourceFolder -Directory
+$folderCount = $folders.Count
 $progress = 0
 
-Get-ChildItem -Path $sourceFolder -Directory | ForEach-Object {
-    $destinationPath = Join-Path -Path $destinationFolder -ChildPath $_.Name
-    Copy-Item -Path $_.FullName -Destination $destinationPath -Recurse -Verbose
+foreach ($folder in $folders) {
+    $destinationPath = Join-Path -Path $destinationFolder -ChildPath $folder.Name
+    Copy-Item -Path $folder.FullName -Destination $destinationPath -Recurse -Verbose
     $progress++
     $percentComplete = ($progress / $folderCount) * 100
     Write-Progress -Activity "Copying Folders" -Status "Progress" -PercentComplete $percentComplete
+    Write-Host "Copying folder: $($folder.Name)"
 }
 
 # Show congratulatory message
+Write-Host ""
+Write-Host "------------------------------------------------------------------------------------------------------"
 Write-Host "Installation Process COMPLETE"
+Write-Host "Do not forget to bring us a CUP OF COFFEE ;-)"
+Write-Host "------------------------------------------------------------------------------------------------------"
