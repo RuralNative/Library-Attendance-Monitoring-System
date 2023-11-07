@@ -15,32 +15,44 @@ if (isset($_POST['submit'])) {
 	//PRIMARY code block for CSV Reader initialization and storing fetched data of specific columns to database
 	$handle = fopen($_FILES['filename']['tmp_name'], "r");
 
-	//Ignore first two rows containing header of CSV
+	//Ignore first three rows containing header of CSV
+	fgetcsv($handle, 5000, ",");
 	fgetcsv($handle, 5000, ",");
 	fgetcsv($handle, 5000, ",");
 
 	while (($data = fgetcsv($handle, 5000, ",")) !== FALSE) {
 		$reference_number = $data[0];
-		$fullname = $data[1];
-		$residence = $data[2];
-		$programme = $data[3];
-		
-		//SQL Query for storing data to database
-		$conn -> query(
-			"INSERT INTO students (
-				reference_number, 
-				firstname,
-				residence, 
-				programme, 
-				created_on
-			) VALUES (
-				'$reference_number', 
-				'$fullname', 
-				'$residence', 
-				'$programme', 
-				NOW()
-			)"
-		);
+
+    	// Check if the student ID already exists in the database
+    	$existingStudent = $conn -> query(	
+			"SELECT reference_number 
+			FROM students 
+			WHERE reference_number = '$reference_number'"
+		) -> fetch_assoc();
+			
+		//Store data if student info does not exist
+		if (!$existingStudent) {
+			$fullname = $data[1];
+			$residence = $data[2];
+			$programme = $data[3];
+			
+			//SQL Query for storing data to database
+			$conn -> query(
+				"INSERT INTO students (
+					reference_number, 
+					firstname,
+					residence, 
+					programme, 
+					created_on
+				) VALUES (
+					'$reference_number', 
+					'$fullname', 
+					'$residence', 
+					'$programme', 
+					NOW()
+				)"
+			);
+		}
 	}
 
 	// Closes CSV Reader
