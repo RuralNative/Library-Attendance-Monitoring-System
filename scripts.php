@@ -11,6 +11,6 @@
 <!-- Font Awesome 5.15.3 CSS -->
 <link rel="stylesheet" href="scripts/all.min.css">
 <!-- Google Font CCS -->
-<link rel="stylesheet" href="scripts/css@family=Source+Sans+Pro%3A300,400,600,700,300italic,400italic,600italic.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 <!-- Moment JS -->
 <script src="scripts/moment.min.js"></script>
