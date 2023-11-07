@@ -17,6 +17,18 @@ body {
 
 .btn-primary:hover,.btn-primary:active,.btn-primary.hover{background-color:#72a57d}
 
+#submit_button {
+    background-color:#3D6245;
+	border-color:#3D6245;
+    color: #ffffff;
+}
+
+#qr_button { 
+    background-color:#3D6245;
+	border-color:#3D6245;
+    color: #ffffff;
+}
+
 .login-box-msg, .register-box-msg {
     margin: 0;
     text-align: center;

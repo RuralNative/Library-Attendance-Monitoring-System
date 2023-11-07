@@ -52,11 +52,11 @@
           <!-- QR Code/Submit Section -->
           <div class="row">
             <div class="col-sm-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat" name="signin"><i class="fa fa-sign-in"></i> CHECK</button>
+              <button id="submit_button" type="submit" class="btn btn-primary btn-block btn-flat" name="signin"><i class="fa fa-sign-in"></i> CHECK</button>
             </div>
             <div class="col-sm-8">
-              <button type="button" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="#qrModal">
-                Want to use QR Scanner?
+              <button id="qr_button" type="button" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="#qrModal">
+                QR Scanner
               </button>
             </div>
           </div>
