@@ -20,6 +20,7 @@ Refer to them for any concerns/inquiries.
 - [Add PHP Script](add.php) - Serves as the PHP script for adding a student's information to the database.
 - [Footer Script](includes\footer.php) - Serves as the PHP script responsible for the content of the footer located at the bottom part of the web page, containing COPYRIGHT DISCLAIMER and DEVELOPERS' NAMES
 - [Header Script](includes\header.php) - Serves as the PHP script responsible for the necessary dependencies usually located at the Header Tag of used for the Admin Web Pages, containing HTML script for the tab title description and necessary CSS and JS importations.
+- [CSV Bulk Importation Script](includes\import.php) - Serves as the PHP script responsible for the bulk importation of student data through a compatible CSV format.
 - [Menu Bar Script](includes\menubar.php) - Serves as the PHP script responsible for the responsive menubar providing links to the different web pages of the web application.
 - [Navigation Bar Script](includes\navbar.php) - Serves as the PHP script responsible for the responsive navigation bar that shows the top section of the web page.
 - [Profile Modal Script](includes\profile_modal.php) - Serves as the PHP script responsible for the responsive modal that shows upon clicking the profile button at the top right side of the web page.
