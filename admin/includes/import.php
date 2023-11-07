@@ -14,6 +14,11 @@ if (isset($_POST['submit'])) {
 
 	//PRIMARY code block for CSV Reader initialization and storing fetched data of specific columns to database
 	$handle = fopen($_FILES['filename']['tmp_name'], "r");
+
+	//Ignore first two rows containing header of CSV
+	fgetcsv($handle, 5000, ",");
+	fgetcsv($handle, 5000, ",");
+
 	while (($data = fgetcsv($handle, 5000, ",")) !== FALSE) {
 		$reference_number = $data[0];
 		$fullname = $data[1];
