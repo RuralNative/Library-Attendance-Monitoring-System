@@ -16,6 +16,10 @@
         <h4 class="login-box-msg" style="font-weight: bold; color: #3D6245; font-size: 20px;">
           <strong>CPSU LIBRARY</strong> <i>Attendance</i>
         </h4>
+        <h4 class="login-box-msg" style="color: #3D6245; font-size: 15px;">
+          <strong>CCS - Moises Padilla Development Team</strong> 
+          <br>SY 2023-2024
+        </h4>
         <!-- FORM COMPONENT -->
         <form id="attendance">
           <!-- Check In/Check Out COMPONENT -->
@@ -61,6 +65,10 @@
             </div>
           </div>
         </form>
+        <br>
+        <h4 class="login-box-msg" style="color: #3D6245; font-size: 15px;">
+          For software problems/troubleshooting, contact <strong>John Berlin Leonor</strong>
+        </h4>
       </div>
       <!-- FORM CONTAINER (END) -->
 
@@ -75,7 +83,7 @@
     </div>
     <div class="login-logo">
       <p id="date" style="color: white"></p>
-      <p id="time" class="bold"></p>
+      <p id="time" class="bold" style="color: white"></p>
     </div>
     <!-- DO NOT MODIFY (END) -->
   </div>
