@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 		$reference_number = $data[0];
 
 		// Skip rows with empty/invalid student ID
-		if (trim($reference_number) === '') {
+		if (trim($reference_number) === '' || strlen($reference_number) !== 11) {
 			continue;
 		}
 
