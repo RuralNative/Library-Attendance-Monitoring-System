@@ -1,10 +1,9 @@
 <?php
+//Initialize connection to database
+include 'conn.php';
+
 // Handles the bulk importation of student information to our student records table of our database
 if (isset($_POST['submit'])) {
-	
-	//Initialize connection to database
-	include 'includes/conn.php';
-	
 	//Show file name/content upon successful upload
 	if (is_uploaded_file($_FILES['filename']['tmp_name'])) {
 		echo "<h1>" . "File ". $_FILES['filename']['name'] ." Uploaded successfully." . "</h1>";
@@ -60,6 +59,6 @@ if (isset($_POST['submit'])) {
 
 	// Show success message and redirects to relevant page
 	echo "<script type='text/javascript'>alert('Successfully imported a CSV file!');</script>";
-	echo "<script>document.location='employee.php'</script>";
+	echo "<script>document.location='../employee.php'</script>";
 }
 ?>
