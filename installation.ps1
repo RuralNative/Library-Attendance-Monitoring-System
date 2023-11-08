@@ -1,5 +1,5 @@
 $sourceFolder = "C:\xampp\htdocs\Library"
-$destinationFolder = "C:\Users\HP-PC\Documents\New folder"
+$destinationFolder = "G:\New folder"
 
 # Show initial message
 $header = @"
@@ -25,11 +25,13 @@ $subheader = @"
 
 Write-Host $header
 Write-Host $subheader
-Write-Host "------------------------------------------------------------------------------------------------------"
+Write-Host " "
+Write-Host "<---------------------------------------------------------------------------------------------------->"
 Write-Host "Developed by the College of Computer Studies - Moises Padilla Dev Team"
 Write-Host "Software Developer I: CHARLIE PELINGON"
 Write-Host "Software Developer I: JOHN BERLIN LEONOR"
-Write-Host "------------------------------------------------------------------------------------------------------"
+Write-Host "<---------------------------------------------------------------------------------------------------->"
+Write-Host " "
 Write-Host "Please wait as we tinker the installation process for you"
 Start-Sleep -Seconds 10
 
@@ -43,8 +45,7 @@ foreach ($file in $files) {
     Copy-Item -Path $file.FullName -Destination $destinationPath -Verbose
     $progress++
     $percentComplete = ($progress / $fileCount) * 100
-    Write-Progress -Activity "Copying Files" -Status "Progress" -PercentComplete $percentComplete
-    Write-Host "Copying file: $($file.Name)"
+    Write-Progress -Activity "Copying Files" -Status "Copying file: $($file.Name)" -PercentComplete $percentComplete
 }
 
 # Copy folders and their contents from the source folder to the destination folder
@@ -57,13 +58,12 @@ foreach ($folder in $folders) {
     Copy-Item -Path $folder.FullName -Destination $destinationPath -Recurse -Verbose
     $progress++
     $percentComplete = ($progress / $folderCount) * 100
-    Write-Progress -Activity "Copying Folders" -Status "Progress" -PercentComplete $percentComplete
-    Write-Host "Copying folder: $($folder.Name)"
+    Write-Progress -Activity "Copying Folders" -Status "Copying folder: $($folder.Name)" -PercentComplete $percentComplete
 }
 
 # Show congratulatory message
-Write-Host ""
-Write-Host "------------------------------------------------------------------------------------------------------"
+Write-Host " "
+Write-Host "<---------------------------------------------------------------------------------------------------->"
 Write-Host "Installation Process COMPLETE"
 Write-Host "Do not forget to bring us a CUP OF COFFEE ;-)"
-Write-Host "------------------------------------------------------------------------------------------------------"
+Write-Host "<----------------------------------------------------------------------------------------------------> "
