@@ -35,7 +35,6 @@
           <?php include 'qr_modal.php' ?>
 
           <!-- Student ID COMPONENT -->
-          <br/>
           <div class="form-group has-feedback">
             <input type="text" class="form-control input-lg" id="employee" name="employee" placeholder="Student ID" required>
           </div>
