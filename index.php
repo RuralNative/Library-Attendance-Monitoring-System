@@ -16,10 +16,6 @@
         <h4 class="login-box-msg" style="font-weight: bold; color: #3D6245; font-size: 20px;">
           <strong>CPSU LIBRARY</strong> <i>Attendance</i>
         </h4>
-        <h4 class="login-box-msg" style="color: #3D6245; font-size: 15px;">
-          <strong>CCS - Moises Padilla Development Team</strong> 
-          <br>SY 2023-2024
-        </h4>
 
         <!-- FORM COMPONENT (START) -->
         <form id="attendance">
@@ -39,7 +35,7 @@
           </div>
           <!-- Submit COMPONENT -->
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
               <button id="submit_button" type="submit" class="btn btn-primary btn-block btn-flat" name="signin"><i class="fa fa-sign-in"></i> CHECK</button>
             </div>
           </div>
