@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Fill the form with the scanned data.
         document.getElementById('employee').value = decodedText;
+        console.log(`Scan result DECODED TEXT IF LOOP ${decodedText}`, decodedResult);
       }
     }
 
