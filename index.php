@@ -21,16 +21,8 @@
           <br>SY 2023-2024
         </h4>
         <!-- QR Scanner COMPONENT -->
-        <div class="qr-scanner-container">
-          <div class="qr-scanner-header">
-            <h5 class="qr-scanner-title">QR Scanner</h5>
-          </div>
-          <div class="qr-scanner-body">
-            <!-- Div to show the QR code scanner -->
-            <div id="qr-reader" style="width:100%"></div>
-            <div id="qr-reader-results"></div>
-          </div>
-        </div>
+        
+        <?php include 'qr_modal.php' ?>
         <!-- FORM COMPONENT -->
         <form id="attendance">
           <!-- Check In/Check Out COMPONENT -->
@@ -141,9 +133,6 @@
     }
   </script>
   <!-- DO NOT MODIFY (END) -->
-
-  <!-- DO NOT MODIFY (END) -->
-  <?php include 'qr_modal.php' ?>
 
 </body>
 </html>
