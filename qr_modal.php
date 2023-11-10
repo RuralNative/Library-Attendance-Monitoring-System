@@ -3,7 +3,7 @@
 
 <div id="qrModal">
     <div class="qr-scanner-header">
-        <h5 class="qrModalLabel">QR Scanner</h5>
+        <h8 class="qrModalLabel">Student ID QR Scanner</h8>
     </div>
     <div class="qr-scanner-body">
         <!-- Div to show the QR code scanner -->
