@@ -1,5 +1,5 @@
 <!-- HTML5 - QRCODE API -->
-<script src="https://unpkg.com/html5-qrcode"></script>
+<script src="scripts/html5-qrcode.js"></script>
 
 <div id="qrModal">
     <div class="qr-scanner-header">
