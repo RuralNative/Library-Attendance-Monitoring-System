@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
       document.getElementById('student_id').value = decodedText;
       console.log(`Scan result DECODED TEXT IF LOOP ${decodedText}`, decodedResult);
 
-      // Deactivate the scanner for 2 seconds
+      // Deactivate the scanner for 800 milliseconds
       isScannerActive = false;
       setTimeout(function() {
         isScannerActive = true;
