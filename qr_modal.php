@@ -2,9 +2,6 @@
 <script src="scripts/html5-qrcode.js"></script>
 
 <div id="qrModal">
-    <div class="qr-scanner-header">
-        <h5 class="qrModalLabel">QR Scanner</h5>
-    </div>
     <div class="qr-scanner-body">
         <!-- Div to show the QR code scanner -->
         <div id="qr-reader" style="width:100%"></div>
@@ -36,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
       setTimeout(function() {
         isScannerActive = true;
         lastResult = null; // Reset lastResult after the delay
-      }, 2000);
+      }, 1000);
 
       // Trigger form submission
       document.getElementById('submit_button').click();
