@@ -21,13 +21,16 @@ document.addEventListener("DOMContentLoaded", function() {
     var lastResult, countResults = 0;
 
     function onScanSuccess(decodedText, decodedResult) {
-      if (decodedText !== lastResult) {
+      if (decodedText !== lastResult | decodedText == lastResult) {
         ++countResults;
         lastResult = decodedText;
 
         // Fill the form with the scanned data.
         document.getElementById('employee').value = decodedText;
         console.log(`Scan result DECODED TEXT IF LOOP ${decodedText}`, decodedResult);
+
+        //Submit Form
+        document.getElementById('submit_button').click();
       }
     }
 
