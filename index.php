@@ -20,9 +20,7 @@
           <strong>CCS - Moises Padilla Development Team</strong> 
           <br>SY 2023-2024
         </h4>
-        <!-- QR Scanner COMPONENT -->
-        
-        <?php include 'qr_modal.php' ?>
+
         <!-- FORM COMPONENT -->
         <form id="attendance">
           <!-- Check In/Check Out COMPONENT -->
@@ -32,29 +30,13 @@
               <option value="out">CHECK OUT</option>
             </select>
           </div>
+
+          <!-- QR Scanner COMPONENT -->
+          <?php include 'qr_modal.php' ?>
+
           <!-- Student ID COMPONENT -->
           <div class="form-group has-feedback">
             <input type="text" class="form-control input-lg" id="employee" name="employee" placeholder="Student ID" required>
-          </div>
-          <!-- Purpose/Course COMPONENT (ROW) -->
-          <div class="row" id="hideValueOnSelect">
-            <!-- Purpose Drop Down -->
-            <div class="form-group col-sm-8">
-              <select class="form-control" name="temperature" id="temperature"">
-                <option value="STUDY">STUDY</option>
-                <option value="RESEARCH">RESEARCH</option>
-                <option value="BORROW BOOKS">BORROW BOOKS</option>
-                <option value="OTHERS">OTHERS</option>
-              </select>
-            </div>
-            <!-- Course Drop Down -->
-            <div class="form-group col-sm-4">
-              <select class="form-control" name="tagno" id="tagno"">
-                <option value="BEED">BEED</option>
-                <option value="BSAB">BSAB</option>
-                <option value="BSIT">BSIT</option>
-              </select>
-            </div>
           </div>
           <!-- QR Code/Submit Section -->
           <div class="row">
