@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
       lastResult = decodedText;
 
       // Fill the form with the scanned data.
-      document.getElementById('employee').value = decodedText;
+      document.getElementById('student_id').value = decodedText;
       console.log(`Scan result DECODED TEXT IF LOOP ${decodedText}`, decodedResult);
 
       // Deactivate the scanner for 2 seconds
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // Trigger form submission
       document.getElementById('submit_button').click();
-      document.getElementById('employee').value = 'Input Student ID';
+      document.getElementById('student_id').value = 'Input Student ID';
     }
   }
 
