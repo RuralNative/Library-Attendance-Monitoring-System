@@ -25,17 +25,24 @@
 
 			// TIMED IN Operation
 			if($status == 'in'){
-				//Code Block for CHECK-IN Operation with 'TIMED IN' Status
-				$sql = "SELECT * FROM attendance WHERE reference_number = '$id' AND date = '$date_now' AND time_in IS NOT NULL AND status = 0";
+			
+				$sql = "SELECT * FROM attendance 
+						WHERE reference_number = '$id' 
+						AND date = '$date_now' 
+						AND time_in IS NOT NULL 
+						AND status = 0";
 				$query = $conn->query($sql);
-				if($query->num_rows > 0){
+
+				if ($query->num_rows > 0) {
+					// Code Block for CHECK-IN Operation with 'TIMED IN' Status
 					$output['error'] = true;
 					$output['message'] = 'You have timed in for today';
-				}
-				else{
-					//Code Block for CHECK-IN Operation with No 'TIMED IN' Status
+				} else {
+					// Code Block for CHECK-IN Operation with No 'TIMED IN' Status
 					$logstatus = 0;
-					$sql = "INSERT INTO attendance (reference_number, date, time_in, status) VALUES ('$id', '$date_now', NOW(), '$logstatus')";
+					$sql = "INSERT INTO attendance 
+							(reference_number, date, time_in, status) 
+							VALUES ('$id', '$date_now', NOW(), '$logstatus')";
 					if($conn->query($sql)){
 						$output['message'] = 'Time in: '.$row['firstname'].' '.$row['lastname'];
 					}
@@ -45,28 +52,31 @@
 					}
 				}
 			} else {
-
 				// TIMED OUT Operation
-				$sql = "SELECT *, attendance.id AS uid FROM attendance LEFT JOIN students ON students.id=attendance.reference_number WHERE attendance.reference_number = '$id' AND date = '$date_now' AND status = 0";
+				$sql = "SELECT *, 
+						attendance.id AS uid 
+						FROM attendance 
+						LEFT JOIN students 
+						ON students.id=attendance.reference_number
+						WHERE attendance.reference_number = '$id' 
+						AND date = '$date_now' 
+						AND status = 0";
 				$query = $conn->query($sql);
 
-				// Code Block for CHECK-IN Operation with 'TIMED OUT' Status (Scenario 1)
 				if ($query->num_rows < 1) {
+					// Code Block for CHECK-IN Operation with 'TIMED OUT' Status (Scenario 1)
 					$output['error'] = true;
 					$output['message'] = 'Cannot Timeout. No time in.';
-				}
-
-				// Code Block for CHECK-IN Operation with 'TIMED OUT' Status (Scenario 2)
-				else {
+				} else {
 					$row = $query->fetch_assoc();
 					if($row['time_out'] != '00:00:00'){
+						// Code Block for CHECK-IN Operation with 'TIMED OUT' Status (Scenario 2)
 						$output['error'] = true;
 						$output['message'] = 'You have timed out for today';
-					}
-					else{
-						// Code Block for CHECK-IN Operation with No 'TIMED OUT' Status
+					} else {
+						// DO NOT MODIFY (START)
 						$sql = "UPDATE attendance SET time_out = NOW(), status = 1 WHERE id = '".$row['uid']."'";
-						if($conn->query($sql)){
+						if ($conn->query($sql)) {
 							$output['message'] = 'Time out: '.$row['firstname'].' '.$row['lastname'];
 
 							$sql = "SELECT * FROM attendance WHERE id = '".$row['uid']."'";
@@ -83,29 +93,26 @@
 							$mins = $interval->format('%i');
 							$mins = $mins/60;
 							$int = $hrs + $mins;
-							if($int > 4){
+							if($int > 4) {
 								$int = $int - 1;
 							}
-
 							$sql = "UPDATE attendance SET num_hr = '$int' WHERE id = '".$row['uid']."'";
 							$conn->query($sql);
-						}
-						else{
+						} else {
 							$output['error'] = true;
 							$output['message'] = $conn->error;
 						}
+						// DO NOT MODIFY (END)
 					}
-					
 				}
 			}
-		}
-		else{
+		} else {
+			// Code Block for Operations in relation to INVALID REF. NUMBER
 			$output['error'] = true;
 			$output['message'] = 'Reference Number not found';
 		}
-		
 	}
 	
+	// SEND JSON Data for Index PHP use
 	echo json_encode($output);
-
 ?>
