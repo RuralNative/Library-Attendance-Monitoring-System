@@ -6,8 +6,6 @@
 		include 'timezone.php';
 
 		$employee = $_POST['employee'];
-		$temperature = $_POST['temperature'];
-		$tagno = $_POST['tagno'];
 		$status = $_POST['status'];
 
 		$sql = "SELECT * FROM students WHERE reference_number = '$employee'";
@@ -35,7 +33,7 @@
 					// $srow = $squery->fetch_assoc();
 					$logstatus = 0;
 					//
-					$sql = "INSERT INTO attendance (reference_number, temperature, tagno, date, time_in, status) VALUES ('$id', '$temperature', '$tagno', '$date_now', NOW(), '$logstatus')";
+					$sql = "INSERT INTO attendance (reference_number, date, time_in, status) VALUES ('$id', '$date_now', NOW(), '$logstatus')";
 					if($conn->query($sql)){
 						$output['message'] = 'Time in: '.$row['firstname'].' '.$row['lastname'];
 					}

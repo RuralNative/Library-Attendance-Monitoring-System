@@ -21,7 +21,7 @@
           <br>SY 2023-2024
         </h4>
 
-        <!-- FORM COMPONENT -->
+        <!-- FORM COMPONENT (START) -->
         <form id="attendance">
           <!-- Check In/Check Out COMPONENT -->
           <div class="form-group">
@@ -30,27 +30,22 @@
               <option value="out">CHECK OUT</option>
             </select>
           </div>
-
           <!-- QR Scanner COMPONENT -->
           <?php include 'qr_modal.php' ?>
-
           <!-- Student ID COMPONENT -->
           <br/>
           <div class="form-group has-feedback">
             <input type="text" class="form-control input-lg" id="employee" name="employee" placeholder="Student ID" required>
           </div>
-          <!-- QR Code/Submit Section -->
+          <!-- Submit COMPONENT -->
           <div class="row">
             <div class="col-sm-4">
               <button id="submit_button" type="submit" class="btn btn-primary btn-block btn-flat" name="signin"><i class="fa fa-sign-in"></i> CHECK</button>
             </div>
-            <div class="col-sm-8">
-              <button id="qr_button" type="button" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="#qrModal">
-                QR Scanner
-              </button>
-            </div>
           </div>
         </form>
+        <!-- FORM COMPONENT (END) -->
+
         <br>
         <h4 class="login-box-msg" style="color: #3D6245; font-size: 15px;">
           For software problems/troubleshooting, contact <strong>John Berlin Leonor</strong>
@@ -76,7 +71,7 @@
   <!-- PAGE SCREEN (END) -->
 
   <!-- DO NOT MODIFY (START) -->
-  <?php include 'scripts.php' ?>
+  
     <script type="text/javascript">
       var interval = setInterval(function() {
         var momentNow = moment();
