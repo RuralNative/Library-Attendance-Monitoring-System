@@ -4,9 +4,6 @@
 <body class="hold-transition register-page">
 <!-- DO NOT MODIFY (END) -->
 
-
-<?php include 'scripts.php' ?>
-
   <!-- PAGE SCREEN (START) -->
   <div class="login-box">
       <!-- LOGO COMPONENT -->
@@ -19,10 +16,10 @@
         <h4 class="login-box-msg" style="font-weight: bold; color: #3D6245; font-size: 20px;">
           <strong>CPSU LIBRARY</strong> <i>Attendance</i>
         </h4>
-        <h4 class="login-box-msg" style="color: #3D6245; font-size: 15px;">
-          <strong>CCS - Moises Padilla Development Team</strong> 
-          <br>SY 2023-2024
-        </h4>
+
+        <!-- QR Scanner COMPONENT -->
+        <?php include 'qr_modal.php' ?>
+        <br/>
 
         <!-- FORM COMPONENT -->
         <form id="attendance">
@@ -37,7 +34,7 @@
           <div class="form-group has-feedback">
             <input type="text" class="form-control input-lg" id="employee" name="employee" placeholder="Student ID" required>
           </div>
-          <!-- QR Code/Submit Section -->
+          <!-- Submit Section -->
           <div class="row">
             <div class="col-sm-12">
               <button id="submit_button" type="submit" class="btn btn-primary btn-block btn-flat" name="signin"><i class="fa fa-sign-in"></i> CHECK</button>
@@ -69,6 +66,7 @@
   <!-- PAGE SCREEN (END) -->
 
   <!-- DO NOT MODIFY (START) -->
+  <?php include 'scripts.php' ?>
     <script type="text/javascript">
       var interval = setInterval(function() {
         var momentNow = moment();
