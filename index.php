@@ -27,7 +27,7 @@
             </select>
           </div>
           <!-- QR Scanner COMPONENT -->
-          <?php include 'qr_modal.php' ?>
+          <?php include 'qr_scanner.php' ?>
           <!-- Student ID COMPONENT -->
           <br/>
           <div class="form-group has-feedback">

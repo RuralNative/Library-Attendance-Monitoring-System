@@ -1,14 +1,33 @@
 <?php
+    // PHP Script for Generating Reports
 	include 'includes/session.php';
 
-	function generateRow($from, $to, $conn){
-		$contents = '';
+    /*
+        - PHP Funtion Data Row Generation
+        - $fromDate refers to starting date
+        - $toDate refers to ending date
+        - $connection refers to our database connection
+    */  
+	function generateRow($fromDate, $toDate, $connection){
+		// Variable to Hold Student Data
+        $contents = '';
 	 	
-	 	// 
-		$sql = "SELECT *, students.reference_number AS empid, attendance.id AS attid FROM attendance LEFT JOIN students ON students.id=attendance.reference_number WHERE date BETWEEN '$from' AND '$to' GROUP BY attendance.reference_number ORDER BY attendance.date ASC, attendance.time_in ASC";
+	 	// Query for Fetching Student Data
+		$sql = "SELECT *, 
+                students.reference_number AS empid, 
+                attendance.id AS attid 
+                FROM attendance 
+                LEFT JOIN students 
+                ON students.id=attendance.reference_number 
+                WHERE date BETWEEN '$fromDate' AND '$toDate' 
+                GROUP BY attendance.reference_number 
+                ORDER BY attendance.date ASC, 
+                attendance.time_in ASC";
+		$query = $connection->query($sql);
 
-		$query = $conn->query($sql);
-		$total = 0;
+        $total = 0;
+
+        // Print Data as long as Query contains Result
 		while($row = $query->fetch_assoc()){
 			$empid = $row['empid'];
            
@@ -17,23 +36,23 @@
 				<td>'.date('M d, Y', strtotime($row['date'])).'</td>
                 <td>'.$row['firstname'].' '.$row['lastname'].'</td>
                 <td>'.$row['empid'].'</td>
-                <td>'.$row['temperature'].'</td>
-                <td>'.$row['tagno'].'</td>
+                <td>NULL</td>
+                <td>NULL</td>
                 <td>'.date('h:i A', strtotime($row['time_in'])).'</td>
                 <td>'.date('h:i A', strtotime($row['time_out'])).'</td>
-				
 			</tr>
 			';
 		}
-
 		return $contents;
 	}
 		
+    // Determine Values for Time-Related Variables
 	$range = $_POST['date_range'];
 	$ex = explode(' - ', $range);
-	$from = date('Y-m-d', strtotime($ex[0]));
-	$to = date('Y-m-d', strtotime($ex[1]));
+	$fromDate = date('Y-m-d', strtotime($ex[0]));
+	$toDate = date('Y-m-d', strtotime($ex[1]));
 
+    // Determine Range Sub Header
 	$from_title = date('M d, Y', strtotime($ex[0]));
 	$to_title = date('M d, Y', strtotime($ex[1]));
 
@@ -67,7 +86,7 @@
                   <th width="12%"><b>Time Out</b></th>
            </tr>  
       ';  
-    $content .= generateRow($from, $to, $conn);  
+    $content .= generateRow($fromDate, $toDate, $conn);  
     $content .= '</table>';  
     $pdf->writeHTML($content);  
     $pdf->Output('attendance.pdf', 'I');
