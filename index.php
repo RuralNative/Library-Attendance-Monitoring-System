@@ -31,7 +31,7 @@
           <!-- Student ID COMPONENT -->
           <br/>
           <div class="form-group has-feedback">
-            <input type="text" class="form-control input-lg" id="employee" name="employee" placeholder="Student ID" required>
+            <input type="text" class="form-control input-lg" id="student_id" name="student_id" placeholder="Student ID" required>
           </div>
           <!-- Submit COMPONENT -->
           <div class="row">
