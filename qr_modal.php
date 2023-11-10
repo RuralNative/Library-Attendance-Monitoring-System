@@ -15,24 +15,34 @@
 <!-- JS Script for QR Input Handling -->
 <script>
 var html5QrcodeScanner = null;
+var isScannerActive = true;
+var lastResult = null;
 
 document.addEventListener("DOMContentLoaded", function() {
-    var resultContainer = document.getElementById('qr-reader-results');
-    var lastResult, countResults = 0;
+  var resultContainer = document.getElementById('qr-reader-results');
+  var countResults = 0;
 
-    function onScanSuccess(decodedText, decodedResult) {
-      if (decodedText !== lastResult | decodedText == lastResult) {
-        ++countResults;
-        lastResult = decodedText;
+  function onScanSuccess(decodedText, decodedResult) {
+    if (isScannerActive && decodedText !== lastResult) {
+      ++countResults;
+      lastResult = decodedText;
 
-        // Fill the form with the scanned data.
-        document.getElementById('employee').value = decodedText;
-        console.log(`Scan result DECODED TEXT IF LOOP ${decodedText}`, decodedResult);
+      // Fill the form with the scanned data.
+      document.getElementById('employee').value = decodedText;
+      console.log(`Scan result DECODED TEXT IF LOOP ${decodedText}`, decodedResult);
 
-        //Submit Form
-        document.getElementById('submit_button').click();
-      }
+      // Deactivate the scanner for 2 seconds
+      isScannerActive = false;
+      setTimeout(function() {
+        isScannerActive = true;
+        lastResult = null; // Reset lastResult after the delay
+      }, 2000);
+
+      // Trigger form submission
+      document.getElementById('submit_button').click();
+      document.getElementById('employee').value = 'Input Student ID';
     }
+  }
 
     // Initialize the scanner when the DOM is ready
     if (html5QrcodeScanner === null) {

@@ -25,7 +25,7 @@
         <form id="attendance">
           <!-- Check In/Check Out COMPONENT -->
           <div class="form-group">
-            <select class="form-control" name="status" id="status" onchange="displayDiv('hideValueOnSelect', this)">
+            <select class="form-control" name="status" id="status">
               <option value="in">CHECK IN</option>
               <option value="out">CHECK OUT</option>
             </select>
@@ -103,14 +103,5 @@
         }); 
     </script>
   <!-- DO NOT MODIFY (END) -->
-
-  <!-- DO NOT MODIFY (START) -->
-  <script type="text/javascript">
-    function displayDiv(id, elementValue) {
-      document.getElementById(id).style.display = elementValue.value === 'in' ? 'block' : 'none'
-    }
-  </script>
-  <!-- DO NOT MODIFY (END) -->
-
 </body>
 </html>
