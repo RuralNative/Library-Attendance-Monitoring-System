@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
       setTimeout(function() {
         isScannerActive = true;
         lastResult = null; // Reset lastResult after the delay
-      }, 1000);
+      }, 800);
 
       // Trigger form submission
       document.getElementById('submit_button').click();
