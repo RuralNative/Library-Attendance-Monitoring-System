@@ -1,4 +1,5 @@
-$sourceFolder = "C:\xampp\htdocs\Library"
+# Set source folder to the folder where the script is located
+$sourceFolder = Get-Location
 $destinationFolder = "G:\New folder"
 
 # Show initial message
@@ -35,29 +36,29 @@ Write-Host " "
 Write-Host "Please wait as we tinker the installation process for you"
 Start-Sleep -Seconds 10
 
-# Copy files from the source folder to the destination folder
+# Retrieve files and folders from the source folder
 $files = Get-ChildItem -Path $sourceFolder -File
-$fileCount = $files.Count
+$folders = Get-ChildItem -Path $sourceFolder -Directory
+
+# Calculate total count of items to be copied
+$totalItems = ($files.Count + $folders.Count)
 $progress = 0
 
+# Copy files from the source folder to the destination folder
 foreach ($file in $files) {
     $destinationPath = Join-Path -Path $destinationFolder -ChildPath $file.Name
-    Copy-Item -Path $file.FullName -Destination $destinationPath -Verbose
+    Copy-Item -Path $file.FullName -Destination $destinationPath -Force
     $progress++
-    $percentComplete = ($progress / $fileCount) * 100
+    $percentComplete = ($progress / $totalItems) * 100
     Write-Progress -Activity "Copying Files" -Status "Copying file: $($file.Name)" -PercentComplete $percentComplete
 }
 
 # Copy folders and their contents from the source folder to the destination folder
-$folders = Get-ChildItem -Path $sourceFolder -Directory
-$folderCount = $folders.Count
-$progress = 0
-
 foreach ($folder in $folders) {
     $destinationPath = Join-Path -Path $destinationFolder -ChildPath $folder.Name
-    Copy-Item -Path $folder.FullName -Destination $destinationPath -Recurse -Verbose
+    Copy-Item -Path $folder.FullName -Destination $destinationPath -Recurse -Force
     $progress++
-    $percentComplete = ($progress / $folderCount) * 100
+    $percentComplete = ($progress / $totalItems) * 100
     Write-Progress -Activity "Copying Folders" -Status "Copying folder: $($folder.Name)" -PercentComplete $percentComplete
 }
 
