@@ -19,8 +19,7 @@
                 FROM attendance 
                 LEFT JOIN students 
                 ON students.id=attendance.reference_number 
-                WHERE date BETWEEN '$fromDate' AND '$toDate' 
-                GROUP BY attendance.reference_number 
+                WHERE date BETWEEN '$fromDate' AND '$toDate'
                 ORDER BY attendance.date ASC, 
                 attendance.time_in ASC";
 		$query = $connection->query($sql);
@@ -129,14 +128,15 @@
       	<table border="1" cellspacing="0" cellpadding="3">  
            <tr>  
 				  <th width="15%"><b>Date</b></th>
-                  <th width="25%"><b>Full Name</b></th>
-                  <th width="15%"><b>ID Number</b></th>
-                  <th width="12%"><b>Time In</b></th>
-                  <th width="12%"><b>Time Out</b></th>
+                  <th width="30%"><b>Full Name</b></th>
+                  <th width="25%"><b>Students ID</b></th>
+                  <th width="15%"><b>Time In</b></th>
+                  <th width="15%"><b>Time Out</b></th>
            </tr>  
       ';  
     $content .= generateRow($fromDate, $toDate, $conn);  
     $content .= '</table>';  
-    $pdf->writeHTML($content);  
-    $pdf->Output('attendance.pdf', 'I');
+    $pdf->writeHTML($content);
+    $pdf->Output('CPSU - Moises Padilla Library Attendance Report: '.$from_title.' - '.$to_title.'.pdf',
+                'D'); 
 ?>
