@@ -1,6 +1,6 @@
 # Set source folder to the folder where the script is located
 $sourceFolder = Get-Location
-$destinationFolder = "G:\New folder"
+$destinationFolder = "C:\xampp\htdocs\Library"
 
 # Show initial message
 $header = @"
@@ -34,7 +34,7 @@ Write-Host "Software Developer I: JOHN BERLIN LEONOR"
 Write-Host "<---------------------------------------------------------------------------------------------------->"
 Write-Host " "
 Write-Host "Please wait as we tinker the installation process for you"
-Start-Sleep -Seconds 10
+Start-Sleep -Seconds 5
 
 # Retrieve files and folders from the source folder
 $files = Get-ChildItem -Path $sourceFolder -File
