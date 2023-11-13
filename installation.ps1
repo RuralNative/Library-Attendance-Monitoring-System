@@ -17,7 +17,7 @@ $subheader = @"
  _      _ _                             _____           _                 
 | |    (_) |                           / ____|         | |                
 | |     _| |__  _ __ __ _ _ __ _   _  | (___  _   _ ___| |_ ___ _ __ ___  
-| |    | | '_ \| '__/ _` | '__| | | |  \___ \| | | / __| __/ _ \ '_ ` _ \ 
+| |    | | '_ \| '__/ _`  | '__| | | |  \___ \| | | / __| __/ _ \ '_ ` _ \ 
 | |____| | |_) | | | (_| | |  | |_| |  ____) | |_| \__ \ ||  __/ | | | | |
 |______|_|_.__/|_|  \__,_|_|   \__, | |_____/ \__, |___/\__\___|_| |_| |_|
                                 __/ |          __/ |                      
@@ -28,13 +28,15 @@ Write-Host $header
 Write-Host $subheader
 Write-Host " "
 Write-Host "<---------------------------------------------------------------------------------------------------->"
-Write-Host "Developed by the College of Computer Studies - Moises Padilla Dev Team"
-Write-Host "Software Developer I: CHARLIE PELINGON"
-Write-Host "Software Developer I: JOHN BERLIN LEONOR"
+Write-Host " "
+Write-Host "Innovative Solution Provided by COLLEGE OF COMPUTER STUDIES - MOISES PADILLA Dev Team"
+Write-Host "SOFTWARE DEVELOPER: Charlie Pelingon"
+Write-Host "SOFTWARE DEVELOPER: John Berlin Leonor"
+Write-Host " "
 Write-Host "<---------------------------------------------------------------------------------------------------->"
 Write-Host " "
 Write-Host "Please wait as we tinker the installation process for you"
-Start-Sleep -Seconds 5
+Start-Sleep -Seconds 3
 
 # Retrieve files and folders from the source folder
 $files = Get-ChildItem -Path $sourceFolder -File
@@ -44,6 +46,9 @@ $folders = Get-ChildItem -Path $sourceFolder -Directory
 $totalItems = ($files.Count + $folders.Count)
 $progress = 0
 
+# Define the total length of the progress bar
+$progressBarLength = 50
+
 # Copy files from the source folder to the destination folder
 foreach ($file in $files) {
     $destinationPath = Join-Path -Path $destinationFolder -ChildPath $file.Name
@@ -51,8 +56,8 @@ foreach ($file in $files) {
     $progress++
     $percentComplete = ($progress / $totalItems) * 100
     $filledProgressBarLength = [Math]::Round(($percentComplete / 100) * $progressBarLength)
-    $progressBar = ('|' * $filledProgressBarLength).PadRight($progressBarLength)
-    Write-Host "`rCopying Files: $progress of $totalItems ($percentComplete%) complete. {$progressBar}" -NoNewline
+    $progressBar = ('*' * $filledProgressBarLength).PadRight($progressBarLength)
+    Write-Host "`rCopying Files: $progress of $totalItems ($percentComplete%) complete.  >->->  {$progressBar}" -NoNewline
 }
 
 # Copy folders and their contents from the source folder to the destination folder
@@ -62,13 +67,16 @@ foreach ($folder in $folders) {
     $progress++
     $percentComplete = ($progress / $totalItems) * 100
     $filledProgressBarLength = [Math]::Round(($percentComplete / 100) * $progressBarLength)
-    $progressBar = ('|' * $filledProgressBarLength).PadRight($progressBarLength)
-    Write-Host "`rCopying Folders: $progress of $totalItems ($percentComplete%) complete. {$progressBar}" -NoNewline
+    $progressBar = ('*' * $filledProgressBarLength).PadRight($progressBarLength)
+    Write-Host "`rCopying Folders: $progress of $totalItems ($percentComplete%) complete.  >->->  {$progressBar}" -NoNewline
 }
 
 # Show congratulatory message
 Write-Host " "
+Write-Host " "
 Write-Host "<---------------------------------------------------------------------------------------------------->"
+Write-Host " "
 Write-Host "Installation Process COMPLETE"
 Write-Host "Do not forget to bring us a CUP OF COFFEE ;-)"
+Write-Host " "
 Write-Host "<----------------------------------------------------------------------------------------------------> "
