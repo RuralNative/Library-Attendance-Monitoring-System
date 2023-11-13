@@ -50,7 +50,9 @@ foreach ($file in $files) {
     Copy-Item -Path $file.FullName -Destination $destinationPath -Force
     $progress++
     $percentComplete = ($progress / $totalItems) * 100
-    Write-Host "`rCopying Files: $progress of $totalItems ($percentComplete%) complete." -NoNewline
+    $filledProgressBarLength = [Math]::Round(($percentComplete / 100) * $progressBarLength)
+    $progressBar = ('|' * $filledProgressBarLength).PadRight($progressBarLength)
+    Write-Host "`rCopying Files: $progress of $totalItems ($percentComplete%) complete. {$progressBar}" -NoNewline
 }
 
 # Copy folders and their contents from the source folder to the destination folder
@@ -59,7 +61,9 @@ foreach ($folder in $folders) {
     Copy-Item -Path $folder.FullName -Destination $destinationPath -Recurse -Force
     $progress++
     $percentComplete = ($progress / $totalItems) * 100
-    Write-Host "`rCopying Folders: $progress of $totalItems ($percentComplete%) complete." -NoNewline
+    $filledProgressBarLength = [Math]::Round(($percentComplete / 100) * $progressBarLength)
+    $progressBar = ('|' * $filledProgressBarLength).PadRight($progressBarLength)
+    Write-Host "`rCopying Folders: $progress of $totalItems ($percentComplete%) complete. {$progressBar}" -NoNewline
 }
 
 # Show congratulatory message
