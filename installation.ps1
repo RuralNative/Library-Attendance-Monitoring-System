@@ -1,6 +1,6 @@
 # Set source folder to the folder where the script is located
 $sourceFolder = Get-Location
-$destinationFolder = "C:\xampp\htdocs\Library"
+$destinationFolder = "C:\Users\HP-PC\Downloads\New folder"
 
 # Show initial message
 $header = @"
@@ -50,7 +50,7 @@ foreach ($file in $files) {
     Copy-Item -Path $file.FullName -Destination $destinationPath -Force
     $progress++
     $percentComplete = ($progress / $totalItems) * 100
-    Write-Progress -Activity "Copying Files" -Status "Copying file: $($file.Name)" -PercentComplete $percentComplete
+    Write-Host "`rCopying Files: $progress of $totalItems ($percentComplete%) complete." -NoNewline
 }
 
 # Copy folders and their contents from the source folder to the destination folder
@@ -59,7 +59,7 @@ foreach ($folder in $folders) {
     Copy-Item -Path $folder.FullName -Destination $destinationPath -Recurse -Force
     $progress++
     $percentComplete = ($progress / $totalItems) * 100
-    Write-Progress -Activity "Copying Folders" -Status "Copying folder: $($folder.Name)" -PercentComplete $percentComplete
+    Write-Host "`rCopying Folders: $progress of $totalItems ($percentComplete%) complete." -NoNewline
 }
 
 # Show congratulatory message
