@@ -12,6 +12,24 @@ It aims to act as a comprehensive tool to achieve the following objectives:
 - Allow the administrators of the Library to conveniently and efficiently manage/record/track the use of the Library by the students through insightful reports.
 
 Developed by the University's local IT development team - Charlie Pelingon and John Berlin Leonor (RuralNative)- this system is built specifically for the needs of our University's Library and the students who use them.
+
+## Installation Instructions
+
+_This Library Attendance Monitoring System requires the following dependencies to be installed first:_
+
+- XAMPP Local Server
+- Web Browser (Brave/Chrome/Edge/Firefox/Opera/Safari)
+
+_If the following dependencies are successfully installed, you may be able to proceed to the system installation by doing either of the following methods:_
+
+- Copy entire project to the 'htdocs' subdirectory of the XAMPP directory found in the C: Drive. Make sure to rename the project folder to 'Library'.
+- Run the 'installation.ps1' present in the project directory in Windows Powershell which will automatically setup the system for your local machine. Note that you have to run the Powershell in administrator mode and allow the scripts to run in your local machine, achieved by running this command 'Set-ExecutionPolicy unrestricted' in the Powershell prompt.
+
+_Upon successful installation, turn on the Apache and MySQL modules inside your XAMPP Control Panel and open your default web browser. Input the following URLs to open the described components:_
+
+- **Check-in/Check-Out Page** (localhost/Library/)
+- **Administrator Page** (localhost/Library/admin/)
+
 ## Features
 
 - QR Code attendance for efficient check-in/check-out.
@@ -25,10 +43,6 @@ Developed by the University's local IT development team - Charlie Pelingon and J
 - Backend components are developed mainly by PHP with limited implementation of JavaScript.
 - Database developed with SQL.
 - Server hosted locally with XAMPP.
-
-## Installation Instructions
-
-_PENDING_
 
 ## License
 
