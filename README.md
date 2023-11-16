@@ -4,8 +4,14 @@
 
 ## Overview
 
-The Library Attendance Monitoring System is designed for the Central Philippines State University - Moises Padilla Campus to streamline the attendance tracking process in the library. Developed by the University's local IT development team - Charlie Pelingon and John Berlin Leonor - this system ensures the task is achieved in the most convenient manner for both the Librarian and the students by the implementation of several features included in the system as listed below.
+The Library Attendance Monitoring System is designed for the Central Philippines State University - Moises Padilla Campus to streamline the attendance tracking process in the library.
 
+It aims to act as a comprehensive tool to achieve the following objectives:
+
+- Allow students to conveniently check in / check out from the Library whenever using the facilities and resources provided by our Campus Library.
+- Allow the administrators of the Library to conveniently and efficiently manage/record/track the use of the Library by the students through insightful reports.
+
+Developed by the University's local IT development team - Charlie Pelingon and John Berlin Leonor (RuralNative)- this system is built specifically for the needs of our University's Library and the students who use them.
 ## Features
 
 - QR Code attendance for efficient check-in/check-out.
