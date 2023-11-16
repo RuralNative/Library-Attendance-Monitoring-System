@@ -1,6 +1,6 @@
 # Set source folder to the folder where the script is located
 $sourceFolder = Get-Location
-$destinationFolder = "C:\Users\HP-PC\Downloads\New folder"
+$destinationFolder = "G:\New folder"
 
 # Show initial message
 $header = @"
