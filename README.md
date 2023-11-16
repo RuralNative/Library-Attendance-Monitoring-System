@@ -39,10 +39,17 @@ _Upon successful installation, turn on the Apache and MySQL modules inside your 
 
 ## Technologies Used
 
-- Frontend components are developed using HTML, CSS, and vanilla JavaScript.
-- Backend components are developed mainly by PHP with limited implementation of JavaScript.
-- Database developed with SQL.
-- Server hosted locally with XAMPP.
+The system utilized different tools and resources to ensure proper functioning and operations to meet its objectives, as stated below:
+
+- Frontend components are developed using **HTML, CSS, and JavaScript**.
+- Backend components are developed primarily using **PHP programming language**.
+- Database developed with **SQL**.
+- Server hosted locally with **XAMPP**.
+
+The system also uses the following open - source libraries for the critical components of the system which is stated below:
+
+- [TCPDF Library](https://tcpdf.org/) is the open-source PHP library used by the system to generate the periodic reports for use of the Library administrators, providing an extensive set of features such as **(1)** modification of the document's fonts, colors, images, and layouts, **(2)** add images, such as logos, graphics, or other visual elements, and **(3)** customize page layout, size, margins, and orientation.
+- [HTML5-QRCODE Library](https://scanapp.org/html5-qrcode-docs/docs/apis) is the end-to-end scanner with a pre-built user interface, used to provide QR code scanning functionality for the system.
 
 ## License
 
